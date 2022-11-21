@@ -1,7 +1,7 @@
 - name: Set fact for Ubuntu20
   set_fact:
     git_url: "https://github.com/TNBL265/Ansible-Lockdown-Ubuntu20-Audit.git"
-    branch: "master"
+    branch: "dev"
   when: ansible_distribution == "Ubuntu" and ansible_distribution_version == "20.04"
 
 - name: Set fact for Amazon2
