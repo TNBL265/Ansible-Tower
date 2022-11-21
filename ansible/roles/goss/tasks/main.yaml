@@ -35,9 +35,14 @@
   register:
     goss_out
 
+- name: Grep json report name
+  shell: echo "{{ goss_out.msg }}" | grep "/var/tmp/audit_ansible-lockdown-.*.json" -o
+  register:
+    - json_out
+
 - name: Debug json report
   debug:
-    msg: "{{ goss_out.stdout }}"
+    msg: "{{ json_out.stdout }}"
 
 #- name: Copy back json report
 #  copy:
