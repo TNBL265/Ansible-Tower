@@ -1,51 +1,46 @@
 ---
 - name: Test bitbucket access
   shell: ping -c1 github.com
-#
-#- name: Allow sudo without password
-#  lineinfile:
-#    dest: /etc/sudoers
-#    line: "{{ ansible_user }} ALL=(ALL) NOPASSWD: ALL"
-#    validate: "visudo -cf %s"
-#
-#- name: Check if git is installed
-#  package:
-#    name: git
-#    state: present
-#  check_mode: true
-#  register: git_check
-#
-#- name: Check if curl is installed
-#  package:
-#    name: curl
-#    state: present
-#  check_mode: true
-#  register: curl_check
-#
-#- name: Check if goss is installed
-#  shell: "which goss"
-#  register: goss_check
-#  ignore_errors: yes
-#
-#- name: Install git if not installed
-#  shell: "echo 'Need install git'"
-#  when: git_check.changed
-#
-#- name: Install curl if not installed
-#  shell: "echo 'Need install curl'"
-#  when: curl_check.changed
-#
-#- name: Install goss if not installed
-#  shell: "echo 'Need install goss'"
-#  when: goss_check.rc == 1
-#
-#- name: Install git and curl
-#  apt:
-#    pkg:
-#      - git
-#      - curl
-#
-#- name: Install goss
-#  shell: |
-#    sudo curl -L https://github.com/aelsabbahy/goss/releases/latest/download/goss-linux-amd64 -o /usr/local/bin/goss; \
-#    sudo chmod +rx /usr/local/bin/goss
+
+- name: Allow sudo without password
+  lineinfile:
+    dest: /etc/sudoers
+    line: "{{ ansible_user }} ALL=(ALL) NOPASSWD: ALL"
+    validate: "visudo -cf %s"
+
+- name: Check if git is installed
+  package:
+    name: git
+    state: present
+  check_mode: true
+  register: git_check
+
+- name: Check if curl is installed
+  package:
+    name: curl
+    state: present
+  check_mode: true
+  register: curl_check
+
+- name: Check if goss is installed
+  shell: "which goss"
+  register: goss_check
+  ignore_errors: yes
+
+- name: Install git if not installed
+  package:
+    name: git
+    state: present
+  when: git_check.changed
+
+- name: Install curl if not installed
+  package:
+    name: curl
+    state: present
+  when: curl_check.changed
+
+- name: Install goss if not installed
+  shell: |
+    sudo curl -L https://github.com/aelsabbahy/goss/releases/latest/download/goss-linux-amd64 -o /usr/local/bin/goss; \
+    sudo chmod +rx /usr/local/bin/goss
+  when: goss_check.rc == 1
