@@ -37,7 +37,7 @@
 
 - name: Debug json report
   debug:
-    msg: "{{ goss_out.stdout | from_json }}"
+    msg: "{{ goss_out.stdout }}"
 
 #- name: Copy back json report
 #  copy:
