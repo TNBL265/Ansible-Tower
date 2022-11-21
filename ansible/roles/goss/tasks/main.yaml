@@ -41,9 +41,9 @@
     json_out
 
 - name: Copy back json report
-  copy:
+  fetch:
     src: "{{ json_out.stdout }}"
-    dest: "{{ ansible_dir }}/json-report"
+    dest: "json-report"
 
 - name: Remove audit repo
   file:
