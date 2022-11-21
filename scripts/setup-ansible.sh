@@ -46,5 +46,4 @@ EOF
 
 $ANSIBLE playbook -K -i "$INV_DIR/inventory.ini" \
     -e @"${OVERRIDES}" -b -v "$PLAYBOOK_DIR/site.yaml" \
-    --flush-cache \
     --extra-vars "key_name=$KEY_NAME"
