@@ -38,7 +38,7 @@
 - name: Grep json report name
   shell: echo "{{ goss_out.msg }}" | grep "/var/tmp/audit_ansible-lockdown-.*.json" -o
   register:
-    - json_out
+    json_out
 
 - name: Debug json report
   debug:
