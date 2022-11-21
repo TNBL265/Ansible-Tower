@@ -19,10 +19,6 @@
     branch: "dev"
   when: ansible_distribution == "RedHat" and ansible_distribution_version == "8.0"
 
-- name: Debug
-  debug:
-    msg: "Clone git from {{ git_url }}, branch {{ branch }}"
-
 - name: Clone audit repo
   git:
     repo: "{{ git_url }}"
