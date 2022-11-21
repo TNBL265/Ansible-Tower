@@ -1,0 +1,23 @@
+- hosts: all
+  pre_tasks:
+    - name: Setup precondition
+      import_role:
+        name: precondition
+      tags:
+        - precondition
+
+  tasks:
+    - name: Run goss audit
+      import_role:
+        name: goss
+      tags:
+        - goss
+
+  post_tasks:
+    - name: Ensure postcondition
+      import_role:
+        name: postcondition
+      tags:
+        - postcondition
+
+

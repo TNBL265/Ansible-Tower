@@ -1,0 +1,27 @@
+---
+- name: Remove git if not installed initially
+  shell: "echo 'Need remove git'"
+  when: git_check.changed
+
+- name: Remove curl if not installed initially
+  shell: "echo 'Need remove curl'"
+  when: git_check.changed
+
+- name: Remove goss if not installed initially
+  shell: "echo 'Need remove goss'"
+  when: git_check.changed
+
+- name: Disable sudo without passwords
+  lineinfile:
+    dest: /etc/sudoers
+    line: "{{ ansible_user }} ALL=(ALL) NOPASSWD: ALL"
+    state: absent
+    validate: "visudo -cf %s"
+
+- name: Delete authorized keys
+  authorized_key:
+    user: "{{ ansible_user }}"
+    key: "{{ item }}"
+    state: absent
+  with_file:
+    - "~/.ssh/{{ key_name }}.pub"
