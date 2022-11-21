@@ -37,7 +37,7 @@
 
 - name: Debug json report
   debug:
-    msg: "The json report name is {{ goss_out.stdout.find(.json) }}"
+    msg: "{{ goss_out.stdout | from_json }}"
 
 #- name: Copy back json report
 #  copy:
