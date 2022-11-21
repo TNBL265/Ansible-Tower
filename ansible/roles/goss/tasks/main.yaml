@@ -21,10 +21,14 @@
     msg: "Clone git from {{ git_url }}, branch {{ branch }}"
 
 - name: Clone audit repo
-  shell: "sudo git clone --single-branch --branch {{ branch }} {{ git_url }} /var/tmp/ansible-lockdown"
+  git:
+    repo: "{{ git_url }}"
+    dest: /var/tmp/ansible-lockdown
+    single_branch: yes
+    version: "{{ branch }}"
 
 - name: Run goss audit
-  shell: sudo run_audit.sh
+  shell: run_audit.sh
   args:
     chdir: /var/tmp/ansible-lockdown
   register:
