@@ -28,9 +28,7 @@
     version: "{{ branch }}"
 
 - name: Run goss audit
-  shell: run_audit.sh
-  args:
-    chdir: /var/tmp/ansible-lockdown
+  shell: /var/tmp/ansible-lockdown/run_audit.sh
   register:
     goss_out
 
