@@ -9,7 +9,7 @@
   package:
     name: curl
     state: absent
-    when: curl_check.changed
+  when: curl_check.changed
 
 - name: Remove goss if not installed initially
   shell: rm -f /usr/local/bin/goss
