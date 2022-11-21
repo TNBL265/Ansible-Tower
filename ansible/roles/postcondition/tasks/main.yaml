@@ -13,7 +13,7 @@
 
 - name: Remove goss if not installed initially
   shell: rm -f /usr/local/bin/goss
-  when: git_check.changed
+  when: goss_check.stat.exists == false
 
 - name: Disable sudo without passwords
   lineinfile:
