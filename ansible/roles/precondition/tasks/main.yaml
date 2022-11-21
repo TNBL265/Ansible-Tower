@@ -23,11 +23,9 @@
   register: curl_check
 
 - name: Check if goss is installed
-  shell: "which goss"
+  stat:
+    path: /usr/local/bin/goss
   register: goss_check
-  ignore_errors: yes
-  changed_when:
-    - goss_check.rc == 1
 
 - name: Install git if not installed
   package:
