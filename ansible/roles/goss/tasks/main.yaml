@@ -1,18 +1,21 @@
 - name: Set fact for Ubuntu20
   set_fact:
     git_url: "https://github.com/TNBL265/Ansible-Lockdown-Ubuntu20-Audit.git"
+    repo_dir: "Ansible-Lockdown-Ubuntu20-Audit"
     branch: "dev"
   when: ansible_distribution == "Ubuntu" and ansible_distribution_version == "20.04"
 
 - name: Set fact for Amazon2
   set_fact:
     git_url: "https://bitbucket.it.keysight.com/scm/kps011/ansible-lockdown-amazon2-audit.git"
+    repo_dir: "ansible-lockdown-amazon2-audit"
     branch: "dev"
   when: ansible_distribution == "Amazon" and ansible_distribution_version == "2"
 
 - name: Set fact for RHEL 8
   set_fact:
     git_url: "https://bitbucket.it.keysight.com/scm/kps011/ansible-lockdown-rhel8-audit.git"
+    repo_dir: "ansible-lockdown-rhel8-audit"
     branch: "dev"
   when: ansible_distribution == "RedHat" and ansible_distribution_version == "8.0"
 
@@ -23,12 +26,12 @@
 - name: Clone audit repo
   git:
     repo: "{{ git_url }}"
-    dest: /var/tmp/ansible-lockdown
+    dest: "/var/tmp/{{ repo_dir }}"
     single_branch: yes
     version: "{{ branch }}"
 
 - name: Run goss audit
-  shell: /var/tmp/ansible-lockdown/run_audit.sh
+  shell: "/var/tmp/{{ repo_dir }}/run_audit.sh"
   register:
     goss_out
 
@@ -43,7 +46,7 @@
 
 - name: Remove audit repo
   file:
-    path: /var/tmp/ansible-lockdown
+    path: "/var/tmp/{{ repo_dir }}"
     state: absent
 
 - name: Remove json report
