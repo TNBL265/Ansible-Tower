@@ -40,14 +40,10 @@
   register:
     json_out
 
-- name: Debug json report
-  debug:
-    msg: "{{ json_out.stdout }}"
-
-#- name: Copy back json report
-#  copy:
-#    src: goss_out.stdout.find(.json)
-#    dest: {{ ansible_dir }}/json-report
+- name: Copy back json report
+  copy:
+    src: "{{ json_out.stdout }}"
+    dest: "{{ ansible_dir }}/json-report"
 
 - name: Remove audit repo
   file:
@@ -56,5 +52,5 @@
 
 - name: Remove json report
   file:
-    path: "{{ goss_out.stdout.find(.json) }}"
+    path: "{{ json_out.stdout }}"
     state: absent
