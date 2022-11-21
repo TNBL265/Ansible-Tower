@@ -22,10 +22,10 @@
 
 - name: Clone audit repo
   git:
-    repo: {{ git_url }}
+    repo: "{{ git_url }}"
     dest: /var/tmp/ansible-lockdown
     single_branch: yes
-    version: {{ branch }}
+    version: "{{ branch }}"
 
 - name: Run goss audit
   shell: run_audit.sh
