@@ -4,13 +4,13 @@
       import_role:
         name: precondition
 
-#  tasks:
-#    - name: Run goss audit
-#      import_role:
-#        name: goss
-#      tags:
-#        - goss
-#
+  tasks:
+    - name: Run goss audit
+      import_role:
+        name: goss
+      tags:
+        - goss
+
   post_tasks:
     - name: Ensure postcondition
       import_role:
