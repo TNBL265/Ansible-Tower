@@ -26,6 +26,8 @@
   shell: "which goss"
   register: goss_check
   ignore_errors: yes
+  changed_when:
+    - goss_check.rc == 1
 
 - name: Install git if not installed
   package:
