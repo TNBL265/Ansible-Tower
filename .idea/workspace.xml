@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc3b512e-893f-4093-9da8-d6aa0cb4f430" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/ansible/roles/precondition/tasks/main.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ansible/roles/precondition/tasks/main.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/setup-ansible.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/setup-ansible.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +71,7 @@
       <updated>1668551425869</updated>
       <workItem from="1668551428196" duration="17451000" />
       <workItem from="1669035140490" duration="9319000" />
-      <workItem from="1669074402861" duration="1315000" />
+      <workItem from="1669074402861" duration="1644000" />
     </task>
     <servers />
   </component>
