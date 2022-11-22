@@ -7,9 +7,9 @@
 
 - name: Set fact for Amazon2
   set_fact:
-    git_url: "https://bitbucket.it.keysight.com/scm/kps011/ansible-lockdown-amazon2-audit.git"
+    git_url: "https://github.com/TNBL265/ansible-lockdown-amazon2-audit.git"
     repo_dir: "ansible-lockdown-amazon2-audit"
-    branch: "dev"
+    branch: "master"
   when: ansible_distribution == "Amazon" and ansible_distribution_version == "2"
 
 - name: Set fact for RHEL 8
