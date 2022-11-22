@@ -44,6 +44,7 @@ disable_swap: true
 ansible_python_interpreter: /usr/bin/python3
 EOF
 
-$ANSIBLE playbook -K -i "$INV_DIR/inventory.ini" \
+$ANSIBLE playbook \
+    -i "$INV_DIR/inventory.ini" \
     -e @"${OVERRIDES}" -b -v "$PLAYBOOK_DIR/site.yaml" \
     --extra-vars "key_name=$KEY_NAME"
