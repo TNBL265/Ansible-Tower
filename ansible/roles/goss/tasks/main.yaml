@@ -39,7 +39,7 @@
 - name: Copy back json report
   fetch:
     src: "{{ json_out.stdout }}"
-    dest: "../json-report/{{ json_out.stdout }}/"
+    dest: "../json-report/{{ json_out.stdout }}"
     flat: yes
 
 - name: Remove audit repo
