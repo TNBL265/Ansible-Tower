@@ -1,0 +1,141 @@
+{
+    "id": 211,
+    "type": "project",
+    "url": "/api/v2/projects/211/",
+    "related": {
+        "named_url": "/api/v2/projects/VMT++Product-Security-SGP/",
+        "created_by": "/api/v2/users/2/",
+        "modified_by": "/api/v2/users/2/",
+        "credential": "/api/v2/credentials/107/",
+        "last_job": "/api/v2/project_updates/55155/",
+        "teams": "/api/v2/projects/211/teams/",
+        "playbooks": "/api/v2/projects/211/playbooks/",
+        "inventory_files": "/api/v2/projects/211/inventories/",
+        "update": "/api/v2/projects/211/update/",
+        "project_updates": "/api/v2/projects/211/project_updates/",
+        "scm_inventory_sources": "/api/v2/projects/211/scm_inventory_sources/",
+        "schedules": "/api/v2/projects/211/schedules/",
+        "activity_stream": "/api/v2/projects/211/activity_stream/",
+        "notification_templates_started": "/api/v2/projects/211/notification_templates_started/",
+        "notification_templates_success": "/api/v2/projects/211/notification_templates_success/",
+        "notification_templates_error": "/api/v2/projects/211/notification_templates_error/",
+        "access_list": "/api/v2/projects/211/access_list/",
+        "object_roles": "/api/v2/projects/211/object_roles/",
+        "copy": "/api/v2/projects/211/copy/",
+        "organization": "/api/v2/organizations/20/",
+        "default_environment": "/api/v2/execution_environments/3/",
+        "last_update": "/api/v2/project_updates/55155/"
+    },
+    "summary_fields": {
+        "organization": {
+            "id": 20,
+            "name": "Product-Security-SGP",
+            "description": "arjun.narayanan@keysight.com"
+        },
+        "default_environment": {
+            "id": 3,
+            "name": "Keysight-EE",
+            "description": "",
+            "image": "quay.io/satbir/awxks:Nov22.v1"
+        },
+        "credential": {
+            "id": 107,
+            "name": "VMT-Bitbuket",
+            "description": "",
+            "kind": "scm",
+            "cloud": false,
+            "kubernetes": false,
+            "credential_type_id": 2
+        },
+        "last_job": {
+            "id": 55155,
+            "name": "VMT",
+            "description": "",
+            "finished": "2022-11-23T04:40:06.126039Z",
+            "status": "successful",
+            "failed": false
+        },
+        "last_update": {
+            "id": 55155,
+            "name": "VMT",
+            "description": "",
+            "status": "successful",
+            "failed": false
+        },
+        "created_by": {
+            "id": 2,
+            "username": "satbsing",
+            "first_name": "Satbir",
+            "last_name": "Singh"
+        },
+        "modified_by": {
+            "id": 2,
+            "username": "satbsing",
+            "first_name": "Satbir",
+            "last_name": "Singh"
+        },
+        "object_roles": {
+            "admin_role": {
+                "description": "Can manage all aspects of the project",
+                "name": "Admin",
+                "id": 1593
+            },
+            "use_role": {
+                "description": "Can use the project in a job template",
+                "name": "Use",
+                "id": 1594
+            },
+            "update_role": {
+                "description": "May update the project",
+                "name": "Update",
+                "id": 1595
+            },
+            "read_role": {
+                "description": "May view settings for the project",
+                "name": "Read",
+                "id": 1596
+            }
+        },
+        "user_capabilities": {
+            "edit": true,
+            "delete": true,
+            "start": true,
+            "schedule": true,
+            "copy": false
+        },
+        "resolved_environment": {
+            "id": 3,
+            "name": "Keysight-EE",
+            "description": "",
+            "image": "quay.io/satbir/awxks:Nov22.v1"
+        }
+    },
+    "created": "2022-11-16T07:29:42.135677Z",
+    "modified": "2022-11-16T07:29:42.135691Z",
+    "name": "VMT",
+    "description": "",
+    "local_path": "_211__vmt",
+    "scm_type": "git",
+    "scm_url": "ssh://git@bitbucket.it.keysight.com:7999/kps011/ansible-automation-pst.git",
+    "scm_branch": "",
+    "scm_refspec": "",
+    "scm_clean": false,
+    "scm_track_submodules": false,
+    "scm_delete_on_update": false,
+    "credential": 107,
+    "timeout": 0,
+    "scm_revision": "8a703907e3893f16575b84ddf02cbbd888f11fac",
+    "last_job_run": "2022-11-23T04:40:06.126039Z",
+    "last_job_failed": false,
+    "next_job_run": null,
+    "status": "successful",
+    "organization": 20,
+    "scm_update_on_launch": false,
+    "scm_update_cache_timeout": 0,
+    "allow_override": false,
+    "custom_virtualenv": null,
+    "default_environment": 3,
+    "signature_validation_credential": null,
+    "last_update_failed": false,
+    "last_updated": "2022-11-23T04:40:06.126039Z"
+}
