@@ -1,0 +1,72 @@
+{
+    "id": 12003,
+    "type": "host",
+    "url": "/api/v2/hosts/12003/",
+    "related": {
+        "named_url": "/api/v2/hosts/vmt++VMT-Hosts++Product-Security-SGP/",
+        "created_by": "/api/v2/users/146/",
+        "modified_by": "/api/v2/users/146/",
+        "variable_data": "/api/v2/hosts/12003/variable_data/",
+        "groups": "/api/v2/hosts/12003/groups/",
+        "all_groups": "/api/v2/hosts/12003/all_groups/",
+        "job_events": "/api/v2/hosts/12003/job_events/",
+        "job_host_summaries": "/api/v2/hosts/12003/job_host_summaries/",
+        "activity_stream": "/api/v2/hosts/12003/activity_stream/",
+        "inventory_sources": "/api/v2/hosts/12003/inventory_sources/",
+        "smart_inventories": "/api/v2/hosts/12003/smart_inventories/",
+        "ad_hoc_commands": "/api/v2/hosts/12003/ad_hoc_commands/",
+        "ad_hoc_command_events": "/api/v2/hosts/12003/ad_hoc_command_events/",
+        "ansible_facts": "/api/v2/hosts/12003/ansible_facts/",
+        "inventory": "/api/v2/inventories/77/"
+    },
+    "summary_fields": {
+        "inventory": {
+            "id": 77,
+            "name": "VMT-Hosts",
+            "description": "",
+            "has_active_failures": false,
+            "total_hosts": 1,
+            "hosts_with_active_failures": 0,
+            "total_groups": 2,
+            "has_inventory_sources": true,
+            "total_inventory_sources": 1,
+            "inventory_sources_with_failures": 0,
+            "organization_id": 20,
+            "kind": ""
+        },
+        "created_by": {
+            "id": 146,
+            "username": "prodsecapi",
+            "first_name": "Bao Long",
+            "last_name": "Tran Nguyen"
+        },
+        "modified_by": {
+            "id": 146,
+            "username": "prodsecapi",
+            "first_name": "Bao Long",
+            "last_name": "Tran Nguyen"
+        },
+        "user_capabilities": {
+            "edit": true,
+            "delete": true
+        },
+        "groups": {
+            "count": 0,
+            "results": []
+        },
+        "recent_jobs": []
+    },
+    "created": "2022-11-23T13:15:27.934304Z",
+    "modified": "2022-11-23T13:46:25.678598Z",
+    "name": "vmt",
+    "description": "",
+    "inventory": 77,
+    "enabled": true,
+    "instance_id": "",
+    "variables": "",
+    "has_active_failures": false,
+    "has_inventory_sources": false,
+    "last_job": null,
+    "last_job_host_summary": null,
+    "ansible_facts_modified": null
+}

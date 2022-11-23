@@ -1,17 +1,19 @@
-- hosts: all
-  pre_tasks:
-    - name: Setup precondition
-      import_role:
-        name: precondition
+- hosts: vmt
+#  pre_tasks:
+#    - name: Setup precondition
+#      import_role:
+#        name: precondition
 
   tasks:
-    - name: Run goss audit
-      import_role:
-        name: goss
-      tags:
-        - goss
+#    - name: Run goss audit
+#      import_role:
+#        name: goss
+#      tags:
+#        - goss
+    - name: Test ping
+      shell: ping -c3 bitbucket.it.keysight.com
 
-  post_tasks:
-    - name: Ensure postcondition
-      import_role:
-        name: postcondition
+#  post_tasks:
+#    - name: Ensure postcondition
+#      import_role:
+#        name: postcondition
