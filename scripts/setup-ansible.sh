@@ -31,11 +31,11 @@ fi
 
 mkdir -p "$INV_DIR"
 
-echo "[all]" > "$INV"
+echo "[vmt]" > "$INV"
 for node in "${NODES[@]}" ; do
     ip=$(get_node_ip "$node")
     user=$(get_node_user "$node")
-    echo "$node ansible_user=$user ansible_host=$ip ip=$ip access_ip=$ip" >> "$INV"
+    echo "$node ansible_user=$user ansible_host=$ip" >> "$INV"
 done
 
 cat <<EOF >> "$OVERRIDES"
