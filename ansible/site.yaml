@@ -1,5 +1,4 @@
 - hosts: vmt
-  gather_facts: no
   pre_tasks:
     - name: Setup precondition
       import_role:
