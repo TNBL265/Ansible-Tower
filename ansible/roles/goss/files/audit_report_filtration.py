@@ -192,7 +192,7 @@ if __name__ == "__main__":
         # refined_report_name = sys.argv[2]
         raw_report_name = sys.argv[4]
     else:
-        print("Usage:\npython3 audit_report_filtration.py audit_preconditions.json CIS_rule_lookup_table.json {audit_os_type} {raw_report_name}")
+        print("Usage:\npython3 {audit_data_filename} {lookup_data_filename} {audit_os_type} {raw_report_name}")
         exit(1)
 
     support_os_type = ["ubuntu18", "ubuntu20", "ubuntu22", "amazon_linux2", "rhel7", "rhel8", "rhel9"]
