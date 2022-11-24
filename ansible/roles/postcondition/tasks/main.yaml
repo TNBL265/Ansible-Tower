@@ -22,10 +22,10 @@
 #    state: absent
 #    validate: "visudo -cf %s"
 
-- name: Delete authorized keys
-  authorized_key:
-    user: "{{ ansible_user }}"
-    key: "{{ item }}"
-    state: absent
-  with_file:
-    - "~/.ssh/{{ key_name }}.pub"
+#- name: Delete authorized keys
+#  authorized_key:
+#    user: "{{ ansible_user }}"
+#    key: "{{ item }}"
+#    state: absent
+#  with_file:
+#    - "~/.ssh/{{ key_name }}.pub"

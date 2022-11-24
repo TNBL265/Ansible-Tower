@@ -1,6 +1,6 @@
 ---
 - name: Test bitbucket access
-  shell: ping -c3 github.com
+  shell: ping -c3 bitbucket.it.keysight.com
 
 #- name: Allow sudo without password
 #  lineinfile:
