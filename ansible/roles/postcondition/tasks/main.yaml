@@ -14,18 +14,3 @@
 - name: Remove goss if not installed initially
   shell: rm -f /usr/local/bin/goss
   when: goss_check.stat.exists == false
-
-#- name: Disable sudo without passwords
-#  lineinfile:
-#    dest: /etc/sudoers
-#    line: "{{ ansible_user }} ALL=(ALL) NOPASSWD: ALL"
-#    state: absent
-#    validate: "visudo -cf %s"
-
-#- name: Delete authorized keys
-#  authorized_key:
-#    user: "{{ ansible_user }}"
-#    key: "{{ item }}"
-#    state: absent
-#  with_file:
-#    - "~/.ssh/{{ key_name }}.pub"

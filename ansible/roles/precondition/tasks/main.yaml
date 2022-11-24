@@ -2,12 +2,6 @@
 - name: Test bitbucket access
   shell: ping -c3 bitbucket.it.keysight.com
 
-#- name: Allow sudo without password
-#  lineinfile:
-#    dest: /etc/sudoers
-#    line: "{{ ansible_user }} ALL=(ALL) NOPASSWD: ALL"
-#    validate: "visudo -cf %s"
-
 - name: Check if git is installed
   package:
     name: git
