@@ -185,7 +185,7 @@ if __name__ == "__main__":
     #################################
     # Only for temporay usage       #
     #################################
-    if len(sys.argv) == 3:
+    if len(sys.argv) == 5:
         audit_data_filename = sys.argv[1]
         lookup_data_filename = sys.argv[2]
         audit_os_type = sys.argv[3]
