@@ -31,7 +31,7 @@ echo "[vmt]" > "$INV"
 for node in "${NODES[@]}" ; do
     ip=$(get_node_ip "$node")
     user=$(get_node_user "$node")
-    echo "$node ansible_user=$user ansible_host=$ip ansible_password=$user ansible_become_password=$user"  >> "$INV"
+    echo "$node ansible_user=$user ansible_host=$ip ansible_password=$user ansible_become=true ansible_become_password=$user"  >> "$INV"
 done
 
 $ANSIBLE playbook -v -i "$INV_DIR/inventory.ini" "$PLAYBOOK_DIR/site.yaml"
