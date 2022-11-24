@@ -39,7 +39,7 @@
 - name: Run python conversion
   script: "audit_report_filtration.py {{ json_out.stdout }}"
   args:
-    executable: "{{ ansible_python[executable] }}"
+    executable: "{{ ansible_python['executable'] }}"
 
 #- name: Copy back json report
 #  fetch:
