@@ -40,7 +40,7 @@
     json_out
 
 - name: Run python conversion
-  script: "audit_report_filtration.py {{ python_arg }} {{ json_out.stdout }}"
+  script: "audit_report_filtration.py audit_preconditions.json CIS_rule_lookup_table.json {{ python_arg }} {{ json_out.stdout }}"
   args:
     executable: "{{ ansible_python['executable'] }}"
 

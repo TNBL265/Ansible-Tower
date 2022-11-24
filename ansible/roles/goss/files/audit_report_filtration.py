@@ -4,7 +4,7 @@ import sys
 
 
 class AuditReportFilter:
-    def __init__(self, os_report, raw_report):
+    def __init__(self, os_report, raw_report, audit_data_filename, lookup_data_filename):
         self.os_report = os_report
         self.raw_report = raw_report
 
@@ -12,7 +12,7 @@ class AuditReportFilter:
         self.os_type = self.enum(UBUNTU18=0, UBUNTU20=1, UBUNTU22=2,
                                  AMZLNX2=3, RHEL7=4, RHEL8=5, RHEL9=6)
 
-        self.load_preconditions()
+        self.load_preconditions(audit_data_filename, lookup_data_filename)
 
     def enum(self, **named_values):
         """
@@ -20,11 +20,11 @@ class AuditReportFilter:
         """
         return type("Enum", (), named_values)
 
-    def load_preconditions(self):
+    def load_preconditions(self, audit_data_filename, lookup_data_filename):
         """
         Load certain pre conditions for each os-audit report, includes the CIS-manual audit
         """
-        with open(f"{os.path.abspath(os.curdir)}/preconditions/audit_preconditions.json", "r+") as audit_data:
+        with open(f"{audit_data_filename}", "r+") as audit_data:
             audit_conditions = json.load(audit_data)
         audit_data.close()
 
@@ -44,7 +44,7 @@ class AuditReportFilter:
             self.preconditions = audit_conditions["rhel9"]
 
         # Load lookup table for determining pass fail for each CIS rule
-        with open(f"{os.path.abspath(os.curdir)}/lookup_table/CIS_rule_lookup_table.json", "r+") as lookup_data:
+        with open(f"{lookup_data_filename}", "r+") as lookup_data:
             self.lookup_table = json.load(lookup_data)
         lookup_data.close()
 
@@ -186,11 +186,13 @@ if __name__ == "__main__":
     # Only for temporay usage       #
     #################################
     if len(sys.argv) == 3:
-        audit_os_type = sys.argv[1]
+        audit_data_filename = sys.argv[1]
+        lookup_data_filename = sys.argv[2]
+        audit_os_type = sys.argv[3]
         # refined_report_name = sys.argv[2]
-        raw_report_name = sys.argv[2]
+        raw_report_name = sys.argv[4]
     else:
-        print("Usage:\npython3 audit_report_filtration.py {audit_os_type} {raw_report_name}")
+        print("Usage:\npython3 audit_report_filtration.py audit_preconditions.json CIS_rule_lookup_table.json {audit_os_type} {raw_report_name}")
         exit(1)
 
     support_os_type = ["ubuntu18", "ubuntu20", "ubuntu22", "amazon_linux2", "rhel7", "rhel8", "rhel9"]
@@ -230,7 +232,7 @@ if __name__ == "__main__":
     read_raw_report = open(f"{raw_report_name}", )
     audit_raw_report = json.load(read_raw_report)
     read_raw_report.close()
-    report = AuditReportFilter(audit_os, audit_raw_report)
+    report = AuditReportFilter(audit_os, audit_raw_report, audit_data_filename, lookup_data_filename)
     report.extract_data()
     print(report.refined_report)
     # report.write_report(refined_report_name, f"{os.getcwd()}/report_refined")
