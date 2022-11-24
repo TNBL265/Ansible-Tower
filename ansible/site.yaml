@@ -6,11 +6,11 @@
         name: precondition
 
   tasks:
-#    - name: Run goss audit
-#      import_role:
-#        name: goss
-#      tags:
-#        - goss
+    - name: Run goss audit
+      import_role:
+        name: goss
+      tags:
+        - goss
 #    - name: Test reachability
 #      shell: echo "I am $USER from $(hostname -I)"
 

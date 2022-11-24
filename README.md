@@ -12,6 +12,7 @@ curl -s --cacert keysight.cer -H "Authorization: Bearer $AWXTOKEN" https://awx.i
     "ansible_host": "10.244.33.199",
     "ansible_user": "Ubuntu-20p04",
     "ansible_password": "Ubuntu-20p04",
+    "ansible_become": true,
     "ansible_become_password": "Ubuntu-20p04"
   }'
   
@@ -21,6 +22,7 @@ curl -s --cacert keysight.cer -H "Authorization: Bearer $AWXTOKEN" https://awx.i
     "ansible_host": "10.244.33.200",
     "ansible_user": "AmazonLinux-2",
     "ansible_password": "AmazonLinux-2",
+    "ansible_become": true,
     "ansible_become_password": "AmazonLinux-2"
   }'
 
