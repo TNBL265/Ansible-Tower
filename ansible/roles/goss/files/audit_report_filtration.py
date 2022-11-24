@@ -185,12 +185,12 @@ if __name__ == "__main__":
     #################################
     # Only for temporay usage       #
     #################################
-    if len(sys.argv) == 4:
+    if len(sys.argv) == 3:
         audit_os_type = sys.argv[1]
         # refined_report_name = sys.argv[2]
         raw_report_name = sys.argv[2]
     else:
-        print("Usage:\npython3 audit_report_filtration.py {audit_os_type} {refined_report_name} {raw_report_name}")
+        print("Usage:\npython3 audit_report_filtration.py {audit_os_type} {raw_report_name}")
         exit(1)
 
     support_os_type = ["ubuntu18", "ubuntu20", "ubuntu22", "amazon_linux2", "rhel7", "rhel8", "rhel9"]
