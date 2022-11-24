@@ -3,6 +3,7 @@
     git_url: "https://github.com/TNBL265/Ansible-Lockdown-Ubuntu20-Audit.git"
     repo_dir: "Ansible-Lockdown-Ubuntu20-Audit"
     branch: "dev"
+    python_arg: "ubuntu20"
   when: ansible_distribution == "Ubuntu" and ansible_distribution_version == "20.04"
 
 - name: Set fact for Amazon2
@@ -10,6 +11,7 @@
     git_url: "https://github.com/TNBL265/ansible-lockdown-amazon2-audit.git"
     repo_dir: "ansible-lockdown-amazon2-audit"
     branch: "master"
+    python_arg: "amazon_linux2"
   when: ansible_distribution == "Amazon" and ansible_distribution_version == "2"
 
 - name: Set fact for RHEL 8
@@ -17,6 +19,7 @@
     git_url: "https://bitbucket.it.keysight.com/scm/kps011/ansible-lockdown-rhel8-audit.git"
     repo_dir: "ansible-lockdown-rhel8-audit"
     branch: "dev"
+    python_arg: "rhel8"
   when: ansible_distribution == "RedHat" and ansible_distribution_version == "8.0"
 
 - name: Clone audit repo
@@ -37,7 +40,7 @@
     json_out
 
 - name: Run python conversion
-  script: "audit_report_filtration.py {{ json_out.stdout }}"
+  script: "audit_report_filtration.py {{ python_arg }} {{ json_out.stdout }}"
   args:
     executable: "{{ ansible_python['executable'] }}"
 

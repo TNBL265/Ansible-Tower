@@ -185,7 +185,6 @@ if __name__ == "__main__":
     #################################
     # Only for temporay usage       #
     #################################
-    print(sys.argv)
     if len(sys.argv) == 3:
         audit_os_type = sys.argv[1]
         # refined_report_name = sys.argv[2]
