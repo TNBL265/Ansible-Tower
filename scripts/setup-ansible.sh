@@ -34,6 +34,4 @@ for node in "${NODES[@]}" ; do
     echo "$node ansible_user=$user ansible_host=$ip ansible_password=$user ansible_become_password=$user"  >> "$INV"
 done
 
-$ANSIBLE playbook -K \
-    -i "$INV_DIR/inventory.ini" \
-    -b -v "$PLAYBOOK_DIR/site.yaml"
+$ANSIBLE playbook -i "$INV_DIR/inventory.ini" "$PLAYBOOK_DIR/site.yaml -v"
