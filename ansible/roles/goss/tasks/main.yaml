@@ -53,6 +53,12 @@
   script: "audit_report_filtration.py /var/tmp/{{ repo_dir }}/audit_preconditions.json /var/tmp/{{ repo_dir }}/CIS_rule_lookup_table.json {{ python_arg }} {{ json_out.stdout }}"
   args:
     executable: "{{ ansible_python['executable'] }}"
+  register:
+    python_out
+
+- name: Get python output
+  debug:
+    msg: "{{ python_out.stdout }}"
 
 #- name: Copy back json report
 #  fetch:
