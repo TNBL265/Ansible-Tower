@@ -25,26 +25,15 @@ if [ -e "$INV_DIR" ]; then
     rm -rf "$INV_DIR"
 fi
 
-if [ -e "$OVERRIDES" ]; then
-    rm -rf "$OVERRIDES"
-fi
-
 mkdir -p "$INV_DIR"
 
 echo "[vmt]" > "$INV"
 for node in "${NODES[@]}" ; do
     ip=$(get_node_ip "$node")
     user=$(get_node_user "$node")
-    echo "$node ansible_user=$user ansible_host=$ip" >> "$INV"
+    echo "$node ansible_user=$user ansible_host=$ip ansible_password=$user ansible_become_password=$user"  >> "$INV"
 done
-
-cat <<EOF >> "$OVERRIDES"
-override_system_hostname: false
-disable_swap: true
-ansible_python_interpreter: /usr/bin/python3
-EOF
 
 $ANSIBLE playbook -K \
     -i "$INV_DIR/inventory.ini" \
-    -e @"${OVERRIDES}" -b -v "$PLAYBOOK_DIR/site.yaml" \
-    --extra-vars "key_name=$KEY_NAME"
+    -b -v "$PLAYBOOK_DIR/site.yaml"

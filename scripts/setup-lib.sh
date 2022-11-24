@@ -3,9 +3,9 @@
 ##
 ## Main attributes
 ##
-NODES=( "ansible-lockdown-ubuntu20" "ansible-lockdown-amazon2" ) #"ansible-lockdown-rhel8")
-NODES_USER=( "Ubuntu-20p04" "AmazonLinux-2" ) # "RHatELinux-8")
-NODES_IP=( "10.244.33.199" "10.244.33.200" ) # "10.244.33.201" )
+NODES=( "ansible-lockdown-ubuntu20" ) #"ansible-lockdown-amazon2" ) #"ansible-lockdown-rhel8")
+NODES_USER=( "Ubuntu-20p04" ) #"AmazonLinux-2" ) #"RHatELinux-8")
+NODES_IP=( "10.244.33.199" ) #"10.244.33.200" ) #"10.244.33.201" )
 
 ##
 ## Config
