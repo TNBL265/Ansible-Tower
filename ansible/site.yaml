@@ -10,8 +10,8 @@
 #        name: goss
 #      tags:
 #        - goss
-    - name: Test ping
-      shell: ping -c3 bitbucket.it.keysight.com
+    - name: Test reachability
+      shell: echo "I am $USER from $(hostname -I)"
 
 #  post_tasks:
 #    - name: Ensure postcondition

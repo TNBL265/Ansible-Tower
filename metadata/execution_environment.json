@@ -1,0 +1,41 @@
+{
+    "id": 3,
+    "type": "execution_environment",
+    "url": "/api/v2/execution_environments/3/",
+    "related": {
+        "named_url": "/api/v2/execution_environments/Keysight-EE/",
+        "created_by": "/api/v2/users/1/",
+        "modified_by": "/api/v2/users/2/",
+        "activity_stream": "/api/v2/execution_environments/3/activity_stream/",
+        "unified_job_templates": "/api/v2/execution_environments/3/unified_job_templates/",
+        "copy": "/api/v2/execution_environments/3/copy/"
+    },
+    "summary_fields": {
+        "created_by": {
+            "id": 1,
+            "username": "admin",
+            "first_name": "",
+            "last_name": ""
+        },
+        "modified_by": {
+            "id": 2,
+            "username": "satbsing",
+            "first_name": "Satbir",
+            "last_name": "Singh"
+        },
+        "user_capabilities": {
+            "edit": false,
+            "delete": false,
+            "copy": false
+        }
+    },
+    "created": "2021-09-23T17:10:34.926248Z",
+    "modified": "2022-11-07T09:58:40.478094Z",
+    "name": "Keysight-EE",
+    "description": "",
+    "organization": null,
+    "image": "quay.io/satbir/awxks:Nov22.v1",
+    "managed": false,
+    "credential": null,
+    "pull": "always"
+}

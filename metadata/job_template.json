@@ -1,0 +1,210 @@
+{
+    "id": 215,
+    "type": "job_template",
+    "url": "/api/v2/job_templates/215/",
+    "related": {
+        "named_url": "/api/v2/job_templates/goss-adit++Product-Security-SGP/",
+        "created_by": "/api/v2/users/146/",
+        "modified_by": "/api/v2/users/146/",
+        "labels": "/api/v2/job_templates/215/labels/",
+        "inventory": "/api/v2/inventories/77/",
+        "project": "/api/v2/projects/211/",
+        "organization": "/api/v2/organizations/20/",
+        "credentials": "/api/v2/job_templates/215/credentials/",
+        "last_job": "/api/v2/jobs/55474/",
+        "execution_environment": "/api/v2/execution_environments/3/",
+        "jobs": "/api/v2/job_templates/215/jobs/",
+        "schedules": "/api/v2/job_templates/215/schedules/",
+        "activity_stream": "/api/v2/job_templates/215/activity_stream/",
+        "launch": "/api/v2/job_templates/215/launch/",
+        "webhook_key": "/api/v2/job_templates/215/webhook_key/",
+        "webhook_receiver": "",
+        "notification_templates_started": "/api/v2/job_templates/215/notification_templates_started/",
+        "notification_templates_success": "/api/v2/job_templates/215/notification_templates_success/",
+        "notification_templates_error": "/api/v2/job_templates/215/notification_templates_error/",
+        "access_list": "/api/v2/job_templates/215/access_list/",
+        "survey_spec": "/api/v2/job_templates/215/survey_spec/",
+        "object_roles": "/api/v2/job_templates/215/object_roles/",
+        "instance_groups": "/api/v2/job_templates/215/instance_groups/",
+        "slice_workflow_jobs": "/api/v2/job_templates/215/slice_workflow_jobs/",
+        "copy": "/api/v2/job_templates/215/copy/"
+    },
+    "summary_fields": {
+        "organization": {
+            "id": 20,
+            "name": "Product-Security-SGP",
+            "description": "arjun.narayanan@keysight.com"
+        },
+        "inventory": {
+            "id": 77,
+            "name": "VMT-Hosts",
+            "description": "",
+            "has_active_failures": false,
+            "total_hosts": 1,
+            "hosts_with_active_failures": 0,
+            "total_groups": 0,
+            "has_inventory_sources": true,
+            "total_inventory_sources": 1,
+            "inventory_sources_with_failures": 0,
+            "organization_id": 20,
+            "kind": ""
+        },
+        "execution_environment": {
+            "id": 3,
+            "name": "Keysight-EE",
+            "description": "",
+            "image": "quay.io/satbir/awxks:Nov22.v1"
+        },
+        "project": {
+            "id": 211,
+            "name": "VMT",
+            "description": "",
+            "status": "successful",
+            "scm_type": "git",
+            "allow_override": false
+        },
+        "last_job": {
+            "id": 55474,
+            "name": "API test",
+            "description": "",
+            "finished": "2022-11-24T02:11:24.668099Z",
+            "status": "successful",
+            "failed": false
+        },
+        "last_update": {
+            "id": 55474,
+            "name": "API test",
+            "description": "",
+            "status": "successful",
+            "failed": false
+        },
+        "created_by": {
+            "id": 146,
+            "username": "prodsecapi",
+            "first_name": "Bao Long",
+            "last_name": "Tran Nguyen"
+        },
+        "modified_by": {
+            "id": 146,
+            "username": "prodsecapi",
+            "first_name": "Bao Long",
+            "last_name": "Tran Nguyen"
+        },
+        "object_roles": {
+            "admin_role": {
+                "description": "Can manage all aspects of the job template",
+                "name": "Admin",
+                "id": 1611
+            },
+            "execute_role": {
+                "description": "May run the job template",
+                "name": "Execute",
+                "id": 1612
+            },
+            "read_role": {
+                "description": "May view settings for the job template",
+                "name": "Read",
+                "id": 1613
+            }
+        },
+        "user_capabilities": {
+            "edit": true,
+            "delete": true,
+            "start": true,
+            "schedule": true,
+            "copy": true
+        },
+        "labels": {
+            "count": 0,
+            "results": []
+        },
+        "resolved_environment": {
+            "id": 3,
+            "name": "Keysight-EE",
+            "description": "",
+            "image": "quay.io/satbir/awxks:Nov22.v1"
+        },
+        "recent_jobs": [
+            {
+                "id": 55474,
+                "status": "successful",
+                "finished": "2022-11-24T02:11:24.668099Z",
+                "canceled_on": null,
+                "type": "job"
+            },
+            {
+                "id": 55473,
+                "status": "failed",
+                "finished": "2022-11-24T02:06:15.258187Z",
+                "canceled_on": null,
+                "type": "job"
+            },
+            {
+                "id": 55471,
+                "status": "successful",
+                "finished": "2022-11-24T01:48:40.128151Z",
+                "canceled_on": null,
+                "type": "job"
+            },
+            {
+                "id": 55470,
+                "status": "failed",
+                "finished": "2022-11-24T01:06:36.420409Z",
+                "canceled_on": null,
+                "type": "job"
+            }
+        ],
+        "credentials": []
+    },
+    "created": "2022-11-24T00:45:03.949978Z",
+    "modified": "2022-11-24T02:23:01.776063Z",
+    "name": "goss-adit",
+    "description": "",
+    "job_type": "run",
+    "inventory": 77,
+    "project": 211,
+    "playbook": "site.yaml",
+    "scm_branch": "",
+    "forks": 0,
+    "limit": "",
+    "verbosity": 1,
+    "extra_vars": "",
+    "job_tags": "",
+    "force_handlers": false,
+    "skip_tags": "",
+    "start_at_task": "",
+    "timeout": 0,
+    "use_fact_cache": false,
+    "organization": 20,
+    "last_job_run": "2022-11-24T02:11:24.668099Z",
+    "last_job_failed": false,
+    "next_job_run": null,
+    "status": "successful",
+    "execution_environment": 3,
+    "host_config_key": "",
+    "ask_scm_branch_on_launch": false,
+    "ask_diff_mode_on_launch": false,
+    "ask_variables_on_launch": false,
+    "ask_limit_on_launch": false,
+    "ask_tags_on_launch": false,
+    "ask_skip_tags_on_launch": false,
+    "ask_job_type_on_launch": false,
+    "ask_verbosity_on_launch": false,
+    "ask_inventory_on_launch": false,
+    "ask_credential_on_launch": false,
+    "ask_execution_environment_on_launch": false,
+    "ask_labels_on_launch": false,
+    "ask_forks_on_launch": false,
+    "ask_job_slice_count_on_launch": false,
+    "ask_timeout_on_launch": false,
+    "ask_instance_groups_on_launch": false,
+    "survey_enabled": false,
+    "become_enabled": false,
+    "diff_mode": false,
+    "allow_simultaneous": false,
+    "custom_virtualenv": null,
+    "job_slice_count": 1,
+    "webhook_service": "",
+    "webhook_credential": null,
+    "prevent_instance_group_fallback": false
+}
