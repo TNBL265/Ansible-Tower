@@ -36,11 +36,16 @@
   register:
     json_out
 
-- name: Copy back json report
-  fetch:
-    src: "{{ json_out.stdout }}"
-    dest: "../json-report/{{ json_out.stdout }}"
-    flat: yes
+- name: Run python conversion
+  script: "audit_report_filtration.py {{ json_out.stdout }}"
+  args:
+    executable: "{{ ansible_python[executable] }}"
+
+#- name: Copy back json report
+#  fetch:
+#    src: "{{ json_out.stdout }}"
+#    dest: "../json-report/{{ json_out.stdout }}"
+#    flat: yes
 
 - name: Remove audit repo
   file:
