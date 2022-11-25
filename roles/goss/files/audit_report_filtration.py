@@ -157,4 +157,4 @@ if __name__ == "__main__":
     read_raw_report.close()
     report = AuditReportFilter(audit_os, audit_raw_report, lookup_data_filename)
     report.extract_data()
-    print(report.refined_report)
+    print(json.dumps(report.refined_report))
