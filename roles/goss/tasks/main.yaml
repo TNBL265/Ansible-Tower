@@ -1,46 +1,43 @@
 - name: Set fact for Ubuntu20
   set_fact:
-    git_url: "https://github.com/TNBL265/Ansible-Lockdown-Ubuntu20-Audit.git"
-    repo_dir: "Ansible-Lockdown-Ubuntu20-Audit"
+    git_repo: "ansible-lockdown-ubuntu20-audit"
     branch: "dev"
     python_arg: "ubuntu20"
   when: ansible_distribution == "Ubuntu" and ansible_distribution_version == "20.04"
 
 - name: Set fact for Amazon2
   set_fact:
-    git_url: "https://github.com/TNBL265/ansible-lockdown-amazon2-audit.git"
-    repo_dir: "ansible-lockdown-amazon2-audit"
+    git_repo: "ansible-lockdown-amazon2-audit"
     branch: "master"
     python_arg: "amazon_linux2"
   when: ansible_distribution == "Amazon" and ansible_distribution_version == "2"
 
 - name: Set fact for RHEL 8
   set_fact:
-    git_url: "https://bitbucket.it.keysight.com/scm/kps011/ansible-lockdown-rhel8-audit.git"
-    repo_dir: "ansible-lockdown-rhel8-audit"
+    git_repo: "ansible-lockdown-rhel8-audit"
     branch: "dev"
     python_arg: "rhel8"
   when: ansible_distribution == "RedHat" and ansible_distribution_version == "8.0"
 
 - name: Clone audit repo
   git:
-    repo: "{{ git_url }}"
-    dest: "/var/tmp/{{ repo_dir }}"
+    repo: "'https://{{ git_username }}:{{ git_password }}@bitbucket.it.keysight.com/scm/kps011/{{ git_repo }}.git'"
+    dest: "/var/tmp/{{ git_repo }}"
     single_branch: yes
     version: "{{ branch }}"
 
 - name: Copy over audit preconditions to audit repo
   copy:
     src: "audit_preconditions.json"
-    dest: "/var/tmp/{{ repo_dir }}/audit_preconditions.json"
+    dest: "/var/tmp/{{ git_repo }}/audit_preconditions.json"
 
 - name: Copy over lookup table to audit repo
   copy:
     src: "CIS_rule_lookup_table.json"
-    dest: "/var/tmp/{{ repo_dir }}/CIS_rule_lookup_table.json"
+    dest: "/var/tmp/{{ git_repo }}/CIS_rule_lookup_table.json"
 
 - name: Run goss audit
-  shell: "/var/tmp/{{ repo_dir }}/run_audit.sh"
+  shell: "/var/tmp/{{ git_repo }}/run_audit.sh"
   register:
     goss_out
 
@@ -50,7 +47,7 @@
     json_out
 
 - name: Run python conversion
-  script: "audit_report_filtration.py /var/tmp/{{ repo_dir }}/audit_preconditions.json /var/tmp/{{ repo_dir }}/CIS_rule_lookup_table.json {{ python_arg }} {{ json_out.stdout }}"
+  script: "audit_report_filtration.py /var/tmp/{{ git_repo }}/audit_preconditions.json /var/tmp/{{ git_repo }}/CIS_rule_lookup_table.json {{ python_arg }} {{ json_out.stdout }}"
   args:
     executable: "{{ ansible_python['executable'] }}"
   register:
@@ -62,7 +59,7 @@
 
 - name: Remove audit repo
   file:
-    path: "/var/tmp/{{ repo_dir }}"
+    path: "/var/tmp/{{ git_repo }}"
     state: absent
 
 - name: Remove json report
