@@ -26,11 +26,6 @@
     single_branch: yes
     version: "{{ branch }}"
 
-- name: Copy over audit preconditions to audit repo
-  copy:
-    src: "audit_preconditions.json"
-    dest: "/var/tmp/{{ git_repo }}/audit_preconditions.json"
-
 - name: Copy over lookup table to audit repo
   copy:
     src: "CIS_rule_lookup_table.json"
@@ -47,7 +42,7 @@
     json_out
 
 - name: Run python conversion
-  script: "audit_report_filtration.py /var/tmp/{{ git_repo }}/audit_preconditions.json /var/tmp/{{ git_repo }}/CIS_rule_lookup_table.json {{ python_arg }} {{ json_out.stdout }}"
+  script: "audit_report_filtration.py /var/tmp/{{ git_repo }}/CIS_rule_lookup_table.json {{ python_arg }} {{ json_out.stdout }}"
   args:
     executable: "{{ ansible_python['executable'] }}"
   register:
