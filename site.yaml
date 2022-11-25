@@ -8,6 +8,7 @@
     - name: Run goss audit
       import_role:
         name: goss
+      ignore_errors: yes
       tags:
         - goss
 

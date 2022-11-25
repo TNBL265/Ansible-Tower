@@ -21,7 +21,7 @@
 
 - name: Clone audit repo
   git:
-    repo: "'https://{{ git_username }}:{{ git_password }}@bitbucket.it.keysight.com/scm/kps011/{{ git_repo }}.git'"
+    repo: "https://{{ git_username }}:{{ git_password }}@bitbucket.it.keysight.com/scm/kps011/{{ git_repo }}.git"
     dest: "/var/tmp/{{ git_repo }}"
     single_branch: yes
     version: "{{ branch }}"
@@ -65,4 +65,9 @@
 - name: Remove json report
   file:
     path: "{{ json_out.stdout }}"
+    state: absent
+
+- name: Remove .ansible
+  file:
+    path: "/home/{{ ansible_user }}/.ansible"
     state: absent
