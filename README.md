@@ -38,7 +38,7 @@ curl -s --cacert keysight.cer -H "Authorization: Bearer $AWXTOKEN" https://awx.i
 - `PUT` Update Variable Data for each host (job template should be launched
 after each update)
 ```shell
-curl -s --cacert keysight.cer -H "Authorization: Bearer $AWXTOKEN" https://awx.it.keysight.com/api/v2/hosts/vmt++VMT-Hosts++Product-Security-SGP/variable_data/ \
+curl -s --cacert keysight.cer -H "Authorization: Bearer $AWXTOKEN" https://awx.it.keysight.com/api/v2/hosts/goss-audit++VMT-Hosts++Product-Security-SGP/variable_data/ \
   -X PUT -H "Content-Type: application/json" \
   --data '{
     "ansible_host": "10.244.33.199",
@@ -51,7 +51,7 @@ curl -s --cacert keysight.cer -H "Authorization: Bearer $AWXTOKEN" https://awx.i
   }' \
   -o /dev/null
   
-curl -s --cacert keysight.cer -H "Authorization: Bearer $AWXTOKEN" https://awx.it.keysight.com/api/v2/hosts/vmt++VMT-Hosts++Product-Security-SGP/variable_data/ \
+curl -s --cacert keysight.cer -H "Authorization: Bearer $AWXTOKEN" https://awx.it.keysight.com/api/v2/hosts/goss-audit++VMT-Hosts++Product-Security-SGP/variable_data/ \
   -X PUT -H "Content-Type: application/json" \
   --data '{
     "ansible_host": "10.244.33.200",
@@ -64,7 +64,7 @@ curl -s --cacert keysight.cer -H "Authorization: Bearer $AWXTOKEN" https://awx.i
   }' \
   -o /dev/null
   
-curl -s --cacert keysight.cer -H "Authorization: Bearer $AWXTOKEN" https://awx.it.keysight.com/api/v2/hosts/vmt++VMT-Hosts++Product-Security-SGP/variable_data/ \
+curl -s --cacert keysight.cer -H "Authorization: Bearer $AWXTOKEN" https://awx.it.keysight.com/api/v2/hosts/goss-audit++VMT-Hosts++Product-Security-SGP/variable_data/ \
   -X PUT -H "Content-Type: application/json" \
   --data '{
     "ansible_host": "10.244.33.201",

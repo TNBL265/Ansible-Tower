@@ -1,4 +1,4 @@
-- hosts: vmt
+- hosts: goss-audit
   pre_tasks:
     - name: Setup precondition
       import_role:
