@@ -1,6 +1,7 @@
 # ansible-automation-pst
 
-## Explore environment
+## AWX Project Overview
+
 
 ## Execution
 >
@@ -53,7 +54,7 @@ curl -s --cacert keysight.cer -H "Authorization: Bearer $AWXTOKEN" https://awx.i
   -o /dev/null
 
 # Launch job templates
-export JOB_ID=$(curl -s --cacert keysight.cer -H "Authorization: Bearer $AWXTOKEN" https://awx.it.keysight.com/api/v2/job_templates/215/launch/ -X POST | jq ".id")
+export JOB_ID=$(curl -s --cacert keysight.cer -H "Authorization: Bearer $AWXTOKEN" https://awx.it.keysight.com/api/v2/job_templates/goss-adit++Product-Security-SGP/launch/ -X POST | jq ".id")
 
 # Check job status
 curl -s --cacert keysight.cer -H "Authorization: Bearer $AWXTOKEN" https://awx.it.keysight.com/api/v2/jobs/$JOB_ID/job_host_summaries/ | jq ".results[0].summary_fields.job.status"
@@ -62,5 +63,9 @@ curl -s --cacert keysight.cer -H "Authorization: Bearer $AWXTOKEN" https://awx.i
 curl -s --cacert keysight.cer -H "Authorization: Bearer $AWXTOKEN" https://awx.it.keysight.com/api/v2/jobs/$JOB_ID/stdout/?format=ansi
 
 # Get audit result
-curl -s --cacert keysight.cer -H "Authorization: Bearer $AWXTOKEN" https://awx.it.keysight.com/api/v2/jobs/$JOB_ID/stdout/?format=txt | sed -n '/"msg"/,/\}/p' | sed 's/"msg"://' | awk '{$1=$1};1' | jq
+curl -s --cacert keysight.cer -H "Authorization: Bearer $AWXTOKEN" https://awx.it.keysight.com/api/v2/jobs/$JOB_ID/stdout/?format=txt |
+  tr -d '\\' | sed 's/"rn//g' | sed 's/rn"//g' | # trim escape characters in AmazonLinux2 
+  sed -n '/"msg"/,/^$/p' | sed 's/"msg"://'    | # get the main debug message
+  sed 's/}$//' | sed -e '$a}'                  | # remove all } and add back one } for valid json
+  jq                                             # check json format
 ```
