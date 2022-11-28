@@ -1,10 +1,10 @@
 - hosts:
     vmt:
-      ansible_host: "10.244.33.199"
-      ansible_user: "Ubuntu-20p04"
-      ansible_password: "Ubuntu-20p04"
-      ansible_become: true
-      ansible_become_password: "Ubuntu-20p04"
+      - ansible_host: "10.244.33.199"
+      - ansible_user: "Ubuntu-20p04"
+      - ansible_password: "Ubuntu-20p04"
+      - ansible_become: true
+      - ansible_become_password: "Ubuntu-20p04"
 
   pre_tasks:
     - name: Setup precondition
