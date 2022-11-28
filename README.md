@@ -6,14 +6,15 @@
 
 ## Demo
 ### Explore our Environment
-- We prepare 5 Azure VMs for our demo
+- We prepare 5 Azure VMs for our demo:
   ![](./metadata/VMs.png)
-  - `ansible-dev` (with a public IP) our access point to Ansible management node via ssh
+  - `ansible-dev` (with a public IP) our access point to Ansible management node via ssh: `$ ssh tower`
   - `ansible-tower` simulate our Ansible management node, where I will be sending all my REST API request
-    - contains `keysight.cer` (PEM format, base64 encoded) as the root certificate used to provide TLS for `awx.it.keysight.com`
+    - `keysight.cer` (PEM format, base64 encoded) in the home directory `/home/CCCS-audit22/` as the root certificate 
+    used to provide TLS for `awx.it.keysight.com`
     - environment variables `GIT_USERNAME` and `GIT_PASSWORD` as credentials to `bitbucket.it.keysight.com`
   - `ansible-lockdown-ubuntu20`, `ansible-lockdown-amazon2`, `ansible-lockdown-rhel8` 3 hosts of 3 main OSes that we 
-will demo our goss audit on (require access to `bitbucket.it.keysight.com` and specifically `ansible-lockdown-audit` repo)
+will demo our goss audit on (require access to `bitbucket.it.keysight.com` and specifically `ansible-lockdown-audit` repos)
     - `ansible-lockdown-ubuntu20`:
       - ip address: `10.244.33.199`
       - username: `Ubuntu-20p04`
@@ -27,6 +28,9 @@ will demo our goss audit on (require access to `bitbucket.it.keysight.com` and s
       - username: `RHatELinux-8`
       - password: `RHatELinux-8`
 ### Execution
+>
+> N.B. All `curl` commands are executed in the home directory `/home/CCCS-audit22/` of `ansible-tower` VM
+> 
 - `POST` To sync our AWX project after updating bitbucket repository
 ```shell
 curl -s --cacert keysight.cer -H "Authorization: Bearer $AWXTOKEN" https://awx.it.keysight.com/api/v2/projects/VMT++Product-Security-SGP/update/ -X POST
