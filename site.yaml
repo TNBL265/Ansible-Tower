@@ -1,4 +1,5 @@
-- pre_tasks:
+- hosts: vmt
+  pre_tasks:
     - name: Setup precondition
       import_role:
         name: precondition
