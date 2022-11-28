@@ -2,10 +2,7 @@
 - name: Add host
   add_host:
     name: "vmt"
-    ansible_host: "10.244.33.199"
-    ansible_user: "Ubuntu-20p04"
     ansible_password: "Ubuntu-20p04"
-    ansible_become: true
     ansible_become_password: "Ubuntu-20p04"
 
 - name: Test bitbucket access
